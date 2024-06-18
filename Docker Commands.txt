@@ -1,0 +1,66 @@
+//For help
+docker run --help
+
+//clear screen
+cls
+
+// To see version 
+docker -v
+docker --version
+
+//Pull image
+docker pull image_name
+
+//To see total images available in system
+docker images
+
+//To download different different version of same software use (colon and version number image_name example--- (openjdk:18))
+docker pull openjdk:18
+
+//To serach docker images which all are available through commands or (we can search it online on (dockerhub))
+docker search image_name
+
+//To run docker images but it will not run in background it will start the image and stop it
+docker run image_name_OR_Id
+
+//To see which all docker's containers are running stage
+docker ps
+
+//To see all container's that all runned
+docker ps -a
+
+//To run docker image, provide container_name by yourself and in last how to use it in detach mode by using (-d)
+//by this detach we will get a big ID but still it will run and stop the image
+docker run --name container_name_of_our_wish -d image_name_OR_Id
+
+//To run image and access it we have to run it INTERACTIVE mode by using shortcut (-it) & now it will not stop
+ docker run --name container_name_of_our_wish -it -d image_name_OR_Id
+
+//To go inside the container so that we can use it for that we need to go in EXECUTE mode by using(exec)
+//COMMAND_name ---- we can get this name after running the image
+docker exec -it container_name_OR_Id_(DON"T_USE_IMAGE_ID) COMMAND_name
+
+//To get out of EXECUTE mode every images have different commands
+example: python---> exit()
+         Java----->/exit
+to get out of any server like nginx or appache---->exit
+
+//To stop container
+docker stop container_name_OR_Id
+
+//To remove container from history(docker ps -a) use shortcut of REMOVE(rm)
+docker rm container_name_OR_Id( & here we can use starting value of ID after that also it will work docker it identify itself)
+
+//To remove images from docker use shortcut of REMOVEIMAGE(rmi)
+docker rmi image_name(ONLY IMAGE NAME NOT BY ID)
+
+//To run images like MYSQL we need to set ENIVRONMENT(-e) like user_name_&_password 
+//here mysql:tag---> tag means version of mysql you want if you have more than one software's
+docker run --name container_name_of_our_wish -e MYSQL_ROOT_PASSWORD=password_of_mysql -d mysql:tag(here mysql is image_name)
+//To execute it 
+docker exec -it container_name_OR_Id bash
+
+//To see all history of any container use (inspect)
+docker inspect container_name_OR_Id
+
+
